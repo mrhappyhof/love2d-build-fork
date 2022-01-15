@@ -1,6 +1,6 @@
 #!/bin/bash
 TARGET=$1
-NAME=$(lua lib/get_title.lua)
+NAME=$(lua build/get_title.lua)
 GAME="$NAME.love"
 ROOTDIR=$(pwd)
 
@@ -12,7 +12,7 @@ fi
 echo -n "Packaging for $TARGET... "
 
 PKGDIR=$ROOTDIR/pkg/$TARGET
-LIBDIR=$ROOTDIR/lib/$TARGET
+LIBDIR=$ROOTDIR/build/$TARGET
 
 rm -rf $PKGDIR
 mkdir -p $PKGDIR
