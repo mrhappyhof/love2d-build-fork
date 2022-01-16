@@ -25,8 +25,9 @@ if [ $TARGET = "linux" ]; then
 	cat squashfs-root/bin/love $ROOTDIR/$GAME > squashfs-root/bin/$NAME
     chmod +x squashfs-root/bin/$NAME
     sed -i "s/NAME/$NAME/" squashfs-root/love.desktop
-    appimagetool squashfs-root Elysion.AppImage
+    $LIBDIR/appimagetool.AppImage $PKGDIR/squashfs-root $PKGDIR/Elysion.AppImage
     rm -r squashfs-root
+    rm appimagetool.AppImage
 elif [ $TARGET = "windows" ]; then
 	cd $PKGDIR
 	cat $LIBDIR/love.exe $ROOTDIR/$GAME > $NAME.exe
